@@ -1,4 +1,3 @@
-let hero =["superman","batman","spederman","hulk"];
-for(i=0;i<hero.length;i++){
-    console.log(hero[i]);
-}
+let marks = [99,97,95,98,96];
+console.log(marks);
+console.log(marks.length);
