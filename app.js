@@ -1,5 +1,22 @@
-let arr1 = [1,2,3,4,5];
-let arr2 = arr1.reverse();
+function moveZerosToEnd(arr) {
+  let nonZeroIndex = 0;
 
-console.log(arr1);
-console.log(arr2);
+  // Move all non-zero elements to the front
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== 0) {
+      arr[nonZeroIndex] = arr[i];
+      nonZeroIndex++;
+    }
+  }
+
+  // Fill remaining positions with zeros
+  while (nonZeroIndex < arr.length) {
+    arr[nonZeroIndex] = 0;
+    nonZeroIndex++;
+  }
+
+  return arr;
+}
+
+let arr = [0, 1, 0, 3, 12];
+console.log(moveZerosToEnd(arr)); // Output: [1, 3, 12, 0, 0]
