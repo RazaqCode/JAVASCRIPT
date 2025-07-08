@@ -1,22 +1,8 @@
-function moveZerosToEnd(arr) {
-  let nonZeroIndex = 0;
-
-  // Move all non-zero elements to the front
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] !== 0) {
-      arr[nonZeroIndex] = arr[i];
-      nonZeroIndex++;
-    }
-  }
-
-  // Fill remaining positions with zeros
-  while (nonZeroIndex < arr.length) {
-    arr[nonZeroIndex] = 0;
-    nonZeroIndex++;
-  }
-
-  return arr;
+function moveZeros(arr) {
+  let result = arr.filter(num => num !== 0); // Keep non-zeros
+  let zeros = Array(arr.length - result.length).fill(0); // Add zeros
+  return result.concat(zeros);
 }
 
 let arr = [0, 1, 0, 3, 12];
-console.log(moveZerosToEnd(arr)); // Output: [1, 3, 12, 0, 0]
+console.log(moveZeros(arr)); // Output: [1, 3, 12, 0, 0]
