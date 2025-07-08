@@ -1,22 +1,17 @@
-function mergeSortedArrays(arr1, arr2) {
-  let merged = [];
-  let i = 0, j = 0;
+function countPairsWithSum(arr, target) {
+  let count = 0;
+  let map = {};
 
-  while (i < arr1.length && j < arr2.length) {
-    if (arr1[i] < arr2[j]) {
-      merged.push(arr1[i++]);
-    } else {
-      merged.push(arr2[j++]);
-    }
+  for (let num of arr) {
+    let complement = target - num;
+    if (map[complement]) count += map[complement];
+    
+    map[num] = (map[num] || 0) + 1;
   }
 
-  // Push remaining elements
-  while (i < arr1.length) merged.push(arr1[i++]);
-  while (j < arr2.length) merged.push(arr2[j++]);
-
-  return merged;
+  return count;
 }
 
 // Example
-console.log(mergeSortedArrays([1, 3, 5], [2, 4, 6])); 
-// Output: [1, 2, 3, 4, 5, 6]
+console.log(countPairsWithSum([1, 5, 7, -1, 5], 6)); 
+// Output: 3 (pairs: (1,5), (7,-1), (1,5 again))
