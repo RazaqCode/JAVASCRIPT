@@ -1,22 +1,7 @@
-function isBalanced(s) {
-  let stack = [];
-  let map = {
-    ')': '(',
-    '}': '{',
-    ']': '['
-  };
-
-  for (let char of s) {
-    if (char === '(' || char === '{' || char === '[') {
-      stack.push(char);
-    } else if (char === ')' || char === '}' || char === ']') {
-      if (stack.pop() !== map[char]) return false;
-    }
+function getFrequencies(arr) {
+  let freq = {};
+  for (let num of arr) {
+    freq[num] = (freq[num] || 0) + 1;
   }
-
-  return stack.length === 0;
+  return freq;
 }
-
-// Example
-console.log(isBalanced("{[()]}")); // true
-console.log(isBalanced("{[(])}")); // false
