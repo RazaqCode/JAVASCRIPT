@@ -1,10 +1,22 @@
-function frequencyCount(arr) {
-  return arr.reduce((acc, val) => {
-    acc[val] = (acc[val] || 0) + 1;
-    return acc;
-  }, {});
+function isBalanced(s) {
+  let stack = [];
+  let map = {
+    ')': '(',
+    '}': '{',
+    ']': '['
+  };
+
+  for (let char of s) {
+    if (char === '(' || char === '{' || char === '[') {
+      stack.push(char);
+    } else if (char === ')' || char === '}' || char === ']') {
+      if (stack.pop() !== map[char]) return false;
+    }
+  }
+
+  return stack.length === 0;
 }
 
 // Example
-console.log(frequencyCount([1, 2, 2, 3, 3, 3]));
-// Output: { '1': 1, '2': 2, '3': 3 }
+console.log(isBalanced("{[()]}")); // true
+console.log(isBalanced("{[(])}")); // false
