@@ -1,17 +1,10 @@
-function countPairsWithSum(arr, target) {
-  let count = 0;
-  let map = {};
-
-  for (let num of arr) {
-    let complement = target - num;
-    if (map[complement]) count += map[complement];
-    
-    map[num] = (map[num] || 0) + 1;
-  }
-
-  return count;
+function frequencyCount(arr) {
+  return arr.reduce((acc, val) => {
+    acc[val] = (acc[val] || 0) + 1;
+    return acc;
+  }, {});
 }
 
 // Example
-console.log(countPairsWithSum([1, 5, 7, -1, 5], 6)); 
-// Output: 3 (pairs: (1,5), (7,-1), (1,5 again))
+console.log(frequencyCount([1, 2, 2, 3, 3, 3]));
+// Output: { '1': 1, '2': 2, '3': 3 }
