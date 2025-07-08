@@ -1,8 +1,22 @@
-function moveZeros(arr) {
-  let result = arr.filter(num => num !== 0); // Keep non-zeros
-  let zeros = Array(arr.length - result.length).fill(0); // Add zeros
-  return result.concat(zeros);
+function mergeSortedArrays(arr1, arr2) {
+  let merged = [];
+  let i = 0, j = 0;
+
+  while (i < arr1.length && j < arr2.length) {
+    if (arr1[i] < arr2[j]) {
+      merged.push(arr1[i++]);
+    } else {
+      merged.push(arr2[j++]);
+    }
+  }
+
+  // Push remaining elements
+  while (i < arr1.length) merged.push(arr1[i++]);
+  while (j < arr2.length) merged.push(arr2[j++]);
+
+  return merged;
 }
 
-let arr = [0, 1, 0, 3, 12];
-console.log(moveZeros(arr)); // Output: [1, 3, 12, 0, 0]
+// Example
+console.log(mergeSortedArrays([1, 3, 5], [2, 4, 6])); 
+// Output: [1, 2, 3, 4, 5, 6]
