@@ -1,7 +1,3 @@
-let person = {
-  name: "Razaq",
-  age: 22,
-  city: "Bangalore"
-};
-console.log("Name:", person.name);
-console.log("City:", person["city"]);
+let numbers = [10, 25, 87, 4, 99];
+let max = Math.max(...numbers);
+console.log("Max Value:", max);
