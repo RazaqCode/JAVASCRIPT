@@ -1,3 +1,7 @@
-let word = "madam";
-let isPalindrome = word === word.split('').reverse().join('');
-console.log(isPalindrome ? "Palindrome" : "Not a Palindrome");
+let person = {
+  name: "Razaq",
+  age: 22,
+  city: "Bangalore"
+};
+console.log("Name:", person.name);
+console.log("City:", person["city"]);
