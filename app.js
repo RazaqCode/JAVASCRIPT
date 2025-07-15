@@ -1,6 +1,3 @@
-for (let i = 1; i <= 20; i++) {
-  let output = "";
-  if (i % 3 === 0) output += "Fizz";
-  if (i % 5 === 0) output += "Buzz";
-  console.log(output || i);
-}
+let nums = [10, 20, 30, 40];
+let total = nums.reduce((sum, val) => sum + val, 0);
+console.log("Total Sum:", total);
