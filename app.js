@@ -1,22 +1,17 @@
-function isBalanced(s) {
-  let stack = [];
-  let map = {
-    ')': '(',
-    '}': '{',
-    ']': '['
-  };
+function countPairsWithSum(arr, target) {
+  let count = 0;
+  let map = {};
 
-  for (let char of s) {
-    if (char === '(' || char === '{' || char === '[') {
-      stack.push(char);
-    } else if (char === ')' || char === '}' || char === ']') {
-      if (stack.pop() !== map[char]) return false;
-    }
+  for (let num of arr) {
+    let complement = target - num;
+    if (map[complement]) count += map[complement];
+    
+    map[num] = (map[num] || 0) + 1;
   }
 
-  return stack.length === 0;
+  return count;
 }
 
 // Example
-console.log(isBalanced("{[()]}")); // true
-console.log(isBalanced("{[(])}")); // false
+console.log(countPairsWithSum([1, 5, 7, -1, 5], 6)); 
+// Output: 3 (pairs: (1,5), (7,-1), (1,5 again))
