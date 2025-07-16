@@ -1,10 +1,8 @@
-function frequencyCount(arr) {
-  return arr.reduce((acc, val) => {
-    acc[val] = (acc[val] || 0) + 1;
-    return acc;
-  }, {});
+function moveZeros(arr) {
+  let result = arr.filter(num => num !== 0); // Keep non-zeros
+  let zeros = Array(arr.length - result.length).fill(0); // Add zeros
+  return result.concat(zeros);
 }
 
-// Example
-console.log(frequencyCount([1, 2, 2, 3, 3, 3]));
-// Output: { '1': 1, '2': 2, '3': 3 }
+let arr = [0, 1, 0, 3, 12];
+console.log(moveZeros(arr)); // Output: [1, 3, 12, 0, 0]
