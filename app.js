@@ -1,22 +1,10 @@
-function mergeSortedArrays(arr1, arr2) {
-  let merged = [];
-  let i = 0, j = 0;
-
-  while (i < arr1.length && j < arr2.length) {
-    if (arr1[i] < arr2[j]) {
-      merged.push(arr1[i++]);
-    } else {
-      merged.push(arr2[j++]);
-    }
-  }
-
-  // Push remaining elements
-  while (i < arr1.length) merged.push(arr1[i++]);
-  while (j < arr2.length) merged.push(arr2[j++]);
-
-  return merged;
+function frequencyCount(arr) {
+  return arr.reduce((acc, val) => {
+    acc[val] = (acc[val] || 0) + 1;
+    return acc;
+  }, {});
 }
 
 // Example
-console.log(mergeSortedArrays([1, 3, 5], [2, 4, 6])); 
-// Output: [1, 2, 3, 4, 5, 6]
+console.log(frequencyCount([1, 2, 2, 3, 3, 3]));
+// Output: { '1': 1, '2': 2, '3': 3 }
