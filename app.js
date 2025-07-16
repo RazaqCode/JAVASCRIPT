@@ -1,8 +1,3 @@
-function moveZeros(arr) {
-  let result = arr.filter(num => num !== 0); // Keep non-zeros
-  let zeros = Array(arr.length - result.length).fill(0); // Add zeros
-  return result.concat(zeros);
-}
-
-let arr = [0, 1, 0, 3, 12];
-console.log(moveZeros(arr)); // Output: [1, 3, 12, 0, 0]
+let arr = [1, 2, 3, 4, 5];
+arr.reverse();
+console.log(arr); // Output: [5, 4, 3, 2, 1]
