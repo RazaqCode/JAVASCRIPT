@@ -1,16 +1,18 @@
-const countPairsWithSum = (arr, target) => {
-  const map = new Map();
-  let count = 0;
+const isBalanced = (str) => {
+  const stack = [];
+  const pairs = { ')': '(', '}': '{', ']': '[' };
 
-  for (let num of arr) {
-    let complement = target - num;
-    if (map.has(complement)) count += map.get(complement);
-    map.set(num, (map.get(num) || 0) + 1);
+  for (let char of str) {
+    if (['(', '{', '['].includes(char)) {
+      stack.push(char);
+    } else if (pairs[char]) {
+      if (stack.pop() !== pairs[char]) return false;
+    }
   }
 
-  return count;
+  return stack.length === 0;
 };
 
 // Test
-console.log(countPairsWithSum([1, 5, 7, -1, 5], 6)); 
-// Output: 3
+console.log(isBalanced("({[]})"));  // true
+console.log(isBalanced("({[})"));   // false
