@@ -1,14 +1,16 @@
-const mergeSortedArrays = (a, b) => {
-  const merged = [];
-  let i = 0, j = 0;
+const countPairsWithSum = (arr, target) => {
+  const map = new Map();
+  let count = 0;
 
-  while (i < a.length && j < b.length) {
-    merged.push(a[i] < b[j] ? a[i++] : b[j++]);
+  for (let num of arr) {
+    let complement = target - num;
+    if (map.has(complement)) count += map.get(complement);
+    map.set(num, (map.get(num) || 0) + 1);
   }
 
-  return [...merged, ...a.slice(i), ...b.slice(j)];
+  return count;
 };
 
 // Test
-console.log(mergeSortedArrays([1, 4, 6], [2, 3, 5])); 
-// Output: [1, 2, 3, 4, 5, 6]
+console.log(countPairsWithSum([1, 5, 7, -1, 5], 6)); 
+// Output: 3
