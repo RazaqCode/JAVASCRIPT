@@ -1,1 +1,1 @@
-console.log("mashallaha")
+console.log("cool")
