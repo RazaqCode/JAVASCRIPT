@@ -1,11 +1,6 @@
-function calculator(a, b, operator) {
-  switch(operator) {
-    case '+': return a + b;
-    case '-': return a - b;
-    case '*': return a * b;
-    case '/': return b !== 0 ? a / b : 'Cannot divide by 0';
-    default: return 'Invalid operator';
-  }
+function isPalindrome(str) {
+  const cleaned = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+  return cleaned === cleaned.split('').reverse().join('');
 }
 
-console.log(calculator(10, 5, '+')); // 15
+console.log(isPalindrome("A man, a plan, a canal: Panama")); // true
