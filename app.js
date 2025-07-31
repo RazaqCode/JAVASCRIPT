@@ -1,13 +1,10 @@
-function countdown(seconds) {
-  let counter = seconds;
-  const interval = setInterval(() => {
-    console.log(counter);
-    counter--;
-    if (counter < 0) {
-      clearInterval(interval);
-      console.log("Time's up!");
-    }
-  }, 1000);
+function isPrime(num) {
+  if (num <= 1) return false;
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) return false;
+  }
+  return true;
 }
 
-countdown(5); // Counts down from 5 to 0
+console.log(isPrime(7)); // true
+console.log(isPrime(10)); // false
