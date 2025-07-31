@@ -1,10 +1,5 @@
-function isPrime(num) {
-  if (num <= 1) return false;
-  for (let i = 2; i <= Math.sqrt(num); i++) {
-    if (num % i === 0) return false;
-  }
-  return true;
+function celsiusToFahrenheit(celsius) {
+  return (celsius * 9/5) + 32;
 }
 
-console.log(isPrime(7)); // true
-console.log(isPrime(10)); // false
+console.log(celsiusToFahrenheit(30)); // 86°F
